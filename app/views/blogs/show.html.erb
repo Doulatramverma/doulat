@@ -1,0 +1,31 @@
+ <p>
+   <%if @blog.category_id.present? %>
+
+    <strong>Category:</strong>
+    <%=Category.find(@blog.category_id).name%>
+    <%end%>
+ </p>
+
+ <p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @blog.description %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image %>
+</p>
+
+
+ 
+<h2>Comments</h2>
+<%= render @blog.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
